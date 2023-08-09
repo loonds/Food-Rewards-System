@@ -13,6 +13,7 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
+      //main: '#1a90ff',
       main: '#1cac1d',
     },
     neutral: {
@@ -39,13 +40,16 @@ const theme = createTheme({
   },
 });
 
-const POLLING_INTERVAL = 12000;
+const POLLING_INTERVAL = 12000
 
 const getLibrary = (provider) => {
-  const library = new ethers.providers.Web3Provider(provider);
-  library.pollingInterval = POLLING_INTERVAL;
-  return library;
-};
+  const library = new ethers.providers.Web3Provider(provider)
+  library.pollingInterval = POLLING_INTERVAL
+  return library
+}
+
+// const APP_ID = process.env.REACT_APP_MORALIS_APPLICATION_ID;
+// const SERVER_URL = process.env.REACT_APP_MORALIS_SERVER_URL;
 
 const APP_ID = "DYFU90AwvC6Ktjxrr31VdJNhAV5UadWBr97duwex";
 const SERVER_URL = "https://gq7x7ofh7pyg.usemoralis.com:2053/server";
@@ -59,13 +63,15 @@ const Application = () => {
             <CssBaseline />
             <App />
           </ThemeProvider>
-        </MoralisDappProvider>
+          </MoralisDappProvider>
       </Web3ReactProvider>  
     </MoralisProvider>
   );
 };
 
 ReactDOM.render(
+  // <React.StrictMode>
   <Application />,
+  // </React.StrictMode>,
   document.getElementById("root")
 );
